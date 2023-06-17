@@ -1,16 +1,20 @@
 #!/bin/bash
 
-stages=5
-working_dir="temp"
+stages=3
+maxFalse=0.05
+pos=140
+negrat=20
 data_name=vj_train_m_False_matchdrill_True
+
+working_dir="temp"
 mkdir $working_dir
 
 opencv_traincascade \
 -data ./$working_dir/ \
 -vec data/$data_name.vec \
 -bg $data_name/neg/bg.txt \
--numPos 140 \
--numNeg 280 \
+-numPos $pos \
+-numNeg $((negrat * pos)) \
 -w 28 \
 -h 28 \
 -precalcValBufSize 1024 \
@@ -21,13 +25,13 @@ opencv_traincascade \
 -weightTrimRate 0.95 \
 -maxDepth 1 \
 -minHitRate 0.999 \
--maxFalseAlarmRate 0.05 \
+-maxFalseAlarmRate $maxFalse \
 
-mv $working_dir/cascade.xml result/ballcascade_$stages.xml
+mv $working_dir/cascade.xml result/ballcascade_$stages_$maxFalse.xml
 rm -rf $working_dir
 
 # minHitRate is the parameter that ensures us that our positive training data yields at least a decent detection output
-# maxFalseAlarmRate is used to define how much features need to be added. Actually we want each weak classifier to have a very good hit rate on the positives, and then to allow them to remove negative windows, as fast as possible
+# maxFalseAlarmRate is used to define how much features need to be added. Actually we want each weak classifier to have a very good hit rate on the positives, and then to allow them to remove negative windows, as fast as possible. should not increase the maxFalseAlarmRate above 0.5 because my weak classifers are not better than random guessing
 # The precision of your cascade is shown by acceptanceRatio on the last stage it should be around this value 0.000412662 or less.
 # Negatives = 2x positives
 # maxFalseAlarmRate=0.9 This means that in each stage no more than 90% of the 40 negative samples (ie 36 samples) should lie inside the boundary of positives. When the algorithm manages to put outside that boundary at least 4 samples, it can go to the next stage.
