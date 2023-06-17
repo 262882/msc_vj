@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --nodes=1
-#SBATCH --time=04:00:00
+#SBATCH --time=12:00:00
 #SBATCH --job-name=vj_train
 
 stages=$1
