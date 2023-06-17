@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #SBATCH --nodes=1
-#SBATCH --time=01:30:00
-#SBATCH --job-name=vjtrain
+#SBATCH --time=04:00:00
+#SBATCH --job-name=vj_"$1"_"$2"
 
 stages=$1
 maxFalse=$2
-pos=140
-negrat=4
-data_name=vj_train_m_False_matchdrill_True
+pos=900
+negrat=2
+data_name=vj_train_sml_False_matchdrill_True
 
 working_dir="temp_"$stages"_"$maxFalse
 mkdir $working_dir
