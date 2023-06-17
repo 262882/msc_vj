@@ -19,4 +19,5 @@ opencv_traincascade \
 
 # The precision of your cascade is shown by acceptanceRatio on the last stage it should be around this value 0.000412662 or less.
 # Negatives = 2x positives
+# https://docs.opencv.org/4.x/dc/d88/tutorial_traincascade.html
 # https://answers.opencv.org/question/64431/number-of-stages-or-maxfalsealarmrate/
