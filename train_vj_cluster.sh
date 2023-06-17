@@ -7,7 +7,7 @@
 stages=$1
 maxFalse=$2
 pos=140
-negrat=2
+negrat=4
 data_name=vj_train_m_False_matchdrill_True
 
 working_dir="temp_"$stages"_"$maxFalse
