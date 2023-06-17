@@ -1,2 +1,2 @@
 #!/bin/bash
-opencv_visualisation --image=/data/object.png --model=/data/model.xml --data=/data/result/
+opencv_visualisation --image=/data/ball32.jpg --model=/data/haarcascade_frontalcatface.xml --data=/result/
