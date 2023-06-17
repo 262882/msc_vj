@@ -1,2 +1,3 @@
 #!/bin/bash
-opencv_visualisation --image=./data/ball32.jpeg --model=./result/cascade.xml --data=./result/
+out_dir=$1
+opencv_visualisation --image=data/ball32.jpeg --model=$1 --data=${out_dir%.*}_
