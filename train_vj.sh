@@ -5,9 +5,12 @@ opencv_traincascade \
 -bg vj_train_m_False_matchdrill/neg/bg.txt \
 -numPos 300 \
 -numNeg 280 \
--w 28 -h 28 \
+-w 28 \
+-h 28 \
 -precalcValBufSize 1024 \
 -precalcIdxBufSize 1024 \
 -numStages 6 \
--acceptanceRatioBreakValue 1.0e-5
--mode ALL
+-acceptanceRatioBreakValue 1.0e-5 \
+-mode ALL \
+-weightTrimRate 0.95 \
+-maxDepth 1 \
