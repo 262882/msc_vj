@@ -1,2 +1,3 @@
 #!/bin/bash
-opencv_createsamples -info ./vj_train_m_False_matchdrill/pos/info.dat -w 28 -h 28 -vec data/test.vec #-show
+name=vj_train_m_False_matchdrill_True
+opencv_createsamples -info ./$name/pos/info.dat -w 28 -h 28 -vec data/$name.vec

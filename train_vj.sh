@@ -2,12 +2,13 @@
 
 stages=5
 working_dir="temp"
+data_name=vj_train_m_False_matchdrill_True
 mkdir $working_dir
 
 opencv_traincascade \
 -data ./$working_dir/ \
--vec data/test.vec \
--bg vj_train_m_False_matchdrill/neg/bg.txt \
+-vec data/$data_name.vec \
+-bg $data_name/neg/bg.txt \
 -numPos 140 \
 -numNeg 280 \
 -w 28 \
