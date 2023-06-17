@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --time=04:00:00
-#SBATCH --job-name=vj_"$1"_"$2"
+#SBATCH --job-name=vj_train
 
 stages=$1
 maxFalse=$2
