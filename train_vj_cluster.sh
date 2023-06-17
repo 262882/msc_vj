@@ -4,13 +4,13 @@
 #SBATCH --time=00:30:00
 #SBATCH --job-name=vjtrain
 
-stages=3
-maxFalse=0.05
+stages=$1
+maxFalse=$2
 pos=140
 negrat=2
 data_name=vj_train_m_False_matchdrill_True
 
-working_dir="temp"
+working_dir="temp_"$stages"_"$maxFalse
 mkdir $working_dir
 
 singularity exec ../containers/opencv-sif opencv_traincascade \
